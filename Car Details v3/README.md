@@ -27,6 +27,7 @@
 - `data_dictionary.txt`: provides a short description of the features present in the dataset
 - `notebook.ipynb`: contains all the code written to implement the project
 - `notebook.pdf`: the pdf version of `notebook.ipynb`
+- [Original Google Colab Notebbok](https://colab.research.google.com/drive/1GYrjWzEgQe_yrM9IFpuixYfPVHciljK0?usp=sharing)
 
 <br>
 
