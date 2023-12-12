@@ -4,7 +4,13 @@
 
 ## Table of Contents:
 - [Project Overview](#project-overview)
-
+- [Files](#files)
+- [Tools Used](#tools-used)
+- [Data Cleaning Steps](#data-cleaning-steps)
+- [Results](#results)
+- [References](#references)
+- [Note](#note)
+- [Let's Connect](#lets-connect)
 
 <br>
 
