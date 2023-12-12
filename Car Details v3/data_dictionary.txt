@@ -1,0 +1,36 @@
+------------------------------------------------------------------------------------------------------
+Data Dictionary: Car Details v3
+------------------------------------------------------------------------------------------------------
+
+This document provides a short description of all the features present
+in the dataset
+
+------------------------------------------------------------------------------------------------------  
+name: the complete names of the vehicles
+
+year: the year in which the vehicle was sold
+
+selling_price: the price at which the vehicle was sold
+
+km_driven: the no. of kilometers the vehicle was driven
+
+fuel: the type of fuel used by the vehicle
+
+seller_type: the party that sold the vehicle
+
+transmission: the type of transmission of the vehicle (eg: automatic, manual, etc.)
+
+owner: the level of ownership of the vehicle
+
+mileage: the mileage of the vehicle, measured in 2 different units (km/l, km/kg)
+
+engine: the size of the vehicle's engine (cc)
+
+max_power: measure of the horsepower of the car after taking into account the 
+	   power loss due to friction (bhp)
+
+torque: measure of the twisting force of the vehicle's engine, measured 
+        in 2 different units (N-m, kg-m)
+
+seats: the no. of seats in the vehicle
+------------------------------------------------------------------------------------------------------  
