@@ -2,43 +2,67 @@
 
 ## Table of Contents:
 - [Project Overview](#project-overview)
+- [Dataset](#dataset)
 - [Files](#files)
 - [Tools Used](#tools-used)
-- [Data Cleaning Steps](#data-cleaning-steps)
+- [Project Workflow](#project-workflow)
 - [Results](#results)
-- [References](#references)
 - [Note](#note)
 - [Let's Connect](#lets-connect)
 
 ## Project Overview:
-- The main aim of this project is to clean the `Car Details v3` dataset and transform it to a form suitable for further exploratory data analysis for better interpretation or predictive modelling
-- This project doesn't involve handling missing values or outliers, those steps are reserved to be done in the exploratory analysis step
-- Rather, this project aims at identifying and correcting any invalid values and preparing the dataset for further exploratory analysis
-- This project also aims to demonstrate my skills in Data Cleaning using Python and tools like Pandas and Numpy
+- The main aim of this project is to clean the `Stack Overflow Developer Survey` dataset and transform it to a form suitable for further exploratory data analysis for better interpretation or predictive modelling
+- Data Cleaning is an essential crucial step in any Data Science and Analytics project which is usually carried out right after getting the dataset from an appropriate source
+- To be able to derive meaningful insights from the data and to build reliable predictive models, we must inspect the data thoroughly and identify and handle any errors or inconsistencies present
+- The purpose of this project is to demonstrate my skills in working on and cleaning large real-world datasets
+
+## Dataset:
+- [Data Source]
+- The data is compiled in 2 csv files:
+  - `survey_results_public.csv`: the survey results dataset
+  - `survey_results_schema.csv`: description about the columns
+- This dataset comprises the results of the survey conducted by Stack Overflow in the year 2022
+- The dataset consists of over 73,000 observations and 79 features
+- The dataset contains several nested columns, missing values, inaccurate and inconsistent values that require thorough inspection for identification
+- This dataset was particularly chosen for this project due to its complexity and to demonstrate my proficiency in cleaning real-world datasets
 
 ## Files:
-- `Car Details v3.csv`: contains the entire dataset used in the project
-- `data_dictionary.txt`: provides a short description of the features present in the dataset
-- `notebook.ipynb`: contains all the code written to implement the project
-- `notebook.pdf`: the pdf version of `notebook.ipynb`
-- [Original Google Colab Notebbok](https://colab.research.google.com/drive/1GYrjWzEgQe_yrM9IFpuixYfPVHciljK0?usp=sharing)
+- `data_cleaning_notebook.ipynb`: contains all the code written to inspect and clean the dataset
 
 ## Tools Used:
 - Python
 - Pandas
 - Numpy
-- Google Colab
+- Jupyter
 
-## Data Cleaning Steps:
-- Analyzed the meta-data about the dataset
-- Identified and deleted the duplicate records
-- Performed column-wise inspection; identified and treated any inaccuracies and inconsistencies within the data:
-  - Converted data types of some features for `optimizing memory utilization`
-  - Handled messy and inconsistent values in numeric features and renamed them for better readability
-  - Dropped the irrelevant features from the dataset
-  - Re-ordered the columns for better readability
-- Implemented a function that takes in the raw dataset and returns the cleaned version
-- All the data cleaning steps are implemented in `chained` fashion, for better readability and proof of skill
+## Project Workflow:
+- Firstly, I gathered the dataset from `survey_results_public` and observed some meta-data to learn more about the dataset in hand
+- Extracted the relevant info from `survey_results_schema` compiled a `Data Dictionary` dataframe, which states the column name and its description for all the columns
+  - `survey_results_schema` was missing info for a few columns
+- Inspected the dataset for any duplicate values and missing values
+- Wrote some convenience functions to streamline the inspection and cleaning processes of the dataset:
+  - `col_value_counts`: this function will return the count and percentage of occurance of each unique category of categorical columns in the dataset as a dataframe
+  - `col_memory_usage`: this function will return the memory utilized by a given dataset in bytes
+  - `col_strip_nested`: this function will return a dictionary of all the unique values along with its count in the nested columns
+  - `col_description`: this function will return the description of the column based from the data dictionary dataframe `dictionary`
+- Performed a column-wise inspection on all the 79 columns in the dataset
+  - The convenience functions provided a lot of crucial info. and helped process and understand the dataset quickly
+  - Many columns consisted of nested entries and inconsistent and erranous values
+- Implemented a function `clean_data`, which takes in the raw data and returns the cleaned version
+  - Some irrelevant columns were dropped
+    - The columns `VCHostingPersonal use` and `VCHostingProfessional use` were dropped because they had 0 non-null values
+  - All the column names were converted to lower case and renamed to appropriate titles for better readability
+  - Most of the categorical features required:
+    - Renaming the values to shorter and meaningful values
+    - Cleaning up special characters and punctuation marks from the values
+    - Converting data type to the Pandas `category` type for optimizing memory usage
+  - The `clean_data` function contains all the cleaning steps in a `chain` manner
+- Performed data validation to confirm there're no invalid entries in the dataset based on a few columns:
+  - Checked if the values in `coding_pro_years` are not greater than those of `coding_years` as it would be incorrect
+    - Implemented a function `validate_coding_years` to handle this check
+  - Checked if the observations missing values in `country` also had missing values in `currency`
+  - All the invalid observations were dropped from the dataset
+- Finally the cleaned dataset,  `df_cleaned`, was obtained by passing the original dataset `df` through the functions `clean_data` and `validate_coding_years` sequentially
 
 ## Results:
 - The cleaned dataset utilizes about 2.25 times less memory compared to the original dataset, thereby optimizing memory utilization
@@ -47,13 +71,6 @@
   - imputed using appropriate techniques
 - Some categorical features contain very rare values (<1% of total observations):
 - Overall, a lot of information could be extracted from this dataset and it should be analyzed and studied appropriately using statistics and graphical plots
-
-## References:
-- Converting `mileage` values:
-  - 1 km/l = 2.35 mpg [link](https://www.mpgtolitres.com/kml-to-mpg)
-  - 1 km/kg = 0.0016 mpg [link](https://math.stackexchange.com/questions/1141752/how-to-convert-kilometers-kilogram-km-kg-to-miles-gallon-mpg)
-- Converting `torque` values:
-  - 1 kg-m = 9.80665 N-m [link](https://www.convertunits.com/from/kg-m/to/N-m)
 
 ## Note:
 - Thank you for going through my work 😀
