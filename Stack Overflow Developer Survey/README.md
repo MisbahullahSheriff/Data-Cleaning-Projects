@@ -17,11 +17,11 @@
 - The purpose of this project is to demonstrate my skills in working on and cleaning large real-world datasets
 
 ## Dataset:
-- [Data Source](https://insights.stackoverflow.com/survey)
+- The data comprises the results of the survey conducted by Stack Overflow in the year 2022
+  - [Data Source](https://insights.stackoverflow.com/survey)
 - The data is compiled in 2 csv files:
   - `survey_results_public.csv`: the survey results dataset
   - `survey_results_schema.csv`: description about the columns
-- This dataset comprises the results of the survey conducted by Stack Overflow in the year 2022
 - The dataset consists of over 73,000 observations and 79 features
 - The dataset contains several nested columns, missing values, inaccurate and inconsistent values that require thorough inspection for identification
 - This dataset was particularly chosen for this project due to its complexity and to demonstrate my proficiency in cleaning real-world datasets
