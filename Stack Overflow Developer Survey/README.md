@@ -63,14 +63,24 @@
   - Checked if the observations missing values in `country` also had missing values in `currency`
   - All the invalid observations were dropped from the dataset
 - Finally the cleaned dataset,  `df_cleaned`, was obtained by passing the original dataset `df` through the functions `clean_data` and `validate_coding_years` sequentially
+- Additionally, I also implemented a couple of convenience functions to aid in the feature engineering step, which could used in the modelling step of a predcitive modelling project
+  - `get_top_categories`: this function returns the most common values within a nested column
+  - `clean_nested_column`: this function performs 3 optional operations and returns the dataset with the new features
+    - It can flatten the nested entries based on user-provided values
+    - It can calculate the total no. of values within the nested entries
+    - It can create binary indicator features based on the presence of most common values within the nested entries
+    - A working example of this function is demonstrated at the end of the notebook
+    - Read the function docstring for more info.
+  - This step was done to extract meaningful features from the nested columns present in the dataset
 
 ## Results:
-- The cleaned dataset utilizes about 2.25 times less memory compared to the original dataset, thereby optimizing memory utilization
-- Some features contain missing values; these could be:
-  - dropped altogether; or
-  - imputed using appropriate techniques
-- Some categorical features contain very rare values (<1% of total observations):
-- Overall, a lot of information could be extracted from this dataset and it should be analyzed and studied appropriately using statistics and graphical plots
+- The cleaned dataset utilizes about 2 times less memory compared to the original dataset, thereby optimizing memory utilization
+- The cleaned dataset contains 76 columns (after dropping 3 irrelevant features)
+- The cleaned dataset now contains columns with the following data types:
+  - `float`: 5
+  - `object`: 33
+  - `category`: 38
+- The working of the `clean_nested_column` function is demonstrated at the end for a taste of feature engineering
 
 ## Note:
 - Thank you for going through my work 😀
