@@ -28,7 +28,7 @@
 
 ## Files:
 - `data_cleaning_notebook.ipynb`: contains all the code written to inspect and clean the dataset
-
+- `data_cleaning_notebook.pdf`: pdf version of the notebook
 ## Tools Used:
 - Python
 - Pandas
